@@ -1,0 +1,38 @@
+{
+  "name": "3g",
+  "version": "0.0.0",
+  "description": "A New Start",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "ybduan <ybduan@corp.netease.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "ftp": "^0.3.8",
+    "grunt": "^0.4.5",
+    "grunt-autoprefixer": "^2.0.0",
+    "grunt-contrib-clean": "^0.6.0",
+    "grunt-contrib-coffee": "^0.12.0",
+    "grunt-contrib-connect": "^0.9.0",
+    "grunt-contrib-copy": "^0.7.0",
+    "grunt-contrib-less": "^0.12.0",
+    "grunt-contrib-uglify": "^0.6.0",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-ftp-deploy": "^0.1.9",
+    "grunt-ftps-deploy": "^0.1.5",
+    "grunt-html-build": "^0.5.0",
+    "grunt-newer": "^0.8.0",
+    "grunt-react": "^0.12.2",
+    "grunt-ssh": "^0.12.3",
+    "grunt-ssh-deploy": "^0.2.7",
+    "load-grunt-tasks": "^1.0.0",
+    "pem": "^1.4.4",
+    "request": "^2.51.0",
+    "should": "^6.0.1",
+    "should-http": "0.0.3",
+    "time-grunt": "^1.0.0"
+  },
+  "dependencies": {
+    "mtbuild": "0.0.3"
+  }
+}

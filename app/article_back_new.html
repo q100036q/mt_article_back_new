@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8">
+    <title>网易新闻</title>
+    <script>
+      (function (doc, win) {
+        var docEl = doc.documentElement,
+          isIOS = navigator.userAgent.match(/iphone|ipod|ipad/gi),
+          dpr = isIOS? Math.min(win.devicePixelRatio, 3) : 1,
+          dpr = window.top === window.self? dpr : 1, //被iframe引用时，禁止缩放
+          scale = 1 / dpr,
+          resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize';
+        docEl.dataset.dpr = dpr;
+        var metaEl = doc.createElement('meta');
+        metaEl.name = 'viewport';
+        metaEl.content = 'initial-scale=' + scale + ',maximum-scale=' + scale + ', minimum-scale=' + scale;
+        docEl.firstElementChild.appendChild(metaEl);
+        var recalc = function () {
+            var width = docEl.clientWidth;
+            if (width / dpr > 640) {
+                width = 640 * dpr;
+            }
+            docEl.style.fontSize = 100 * (width / 640) + 'px';
+          };
+        recalc()
+        if (!doc.addEventListener) return;
+        win.addEventListener(resizeEvt, recalc, false);
+      })(document, window);
+    </script>
+    <meta name="format-detection" content="telephone=no" />
+    <!-- build:style article_back_new -->
+    <link rel="stylesheet" type="text/css" href="./styles/article_back_new.css" />
+    <!-- /build -->
+    <!-- build:remove -->
+    <style>
+    .debug-hide{
+      display: none !important;
+    }
+    </style>
+    <!-- /build -->
+  </head>
+
+  <body ontouchstart="">
+    <iframe id="iframe" style="display: none !important;"></iframe>
+    <div class="firstScreen">
+      <div class="f-w">
+        <div class="loading"></div>
+      </div>
+    </div>
+    <img src="http://img1.cache.netease.com/travel/2014/7/22/20140722172931b2127.png" style="display: none!important;">
+    <div class="m-body-wrap">
+      <header class="m-header">
+        <div class="inner">
+          <a data-href="http://3g.163.com/newsapp" class="down open-newsapp" onclick="neteaseTracker(false, 'http://3g.163.com/ntes/special/0034073A/wechat_article.html?action=down', 'article_back', 'wap')"></a>
+          <a class="home" onclick="neteaseTracker(false, 'http://3g.163.com/ntes/special/0034073A/wechat_article.html?action=home', 'article_back', 'wap')"></a>
+        </div>
+      </header>
+      <div class="content-wrapper">
+        <!--正文-->
+        <div class="m-container" id="contentHolder" style="display:none;">
+          <article class="articleList">
+            <div class="head clearfix" id="ucScreen">
+              <h1 class="article-title"></h1>
+              <h2>
+                <span class="source"></span>
+                <span class="time"></span>
+                <span class="replyLink">
+                  跟贴
+                  <span class="replyCount"></span>
+                  条
+                </span>
+              </h2>
+              <div class="article-digest"></div>
+            </div>
+            <div class="text clearfix">
+              <div class="text1">
+
+                <div class="fix-break-word">
+                  <div class="article-footer">
+                    <div id="pageArea" class="page-area">
+                      <span class="show-all-article" id="showAllArticle">加载全文</span>
+                    </div>
+                  </div>
+                  <!-- <div class="relative-news">
+                    <div class="title">相关新闻</div>
+                    <div class="list"></div>
+                  </div> -->
+                </div>
+              </div>
+            </div>
+            <div class="comeon-wrapper"><a class="comeon" href="http://c.m.163.com/nc/qa/ec/dl-mobile.html">我要入驻</a></div>
+
+          </article>
+
+        </div>
+
+        <!--分享-->
+        <div class="m-share">
+          <div class="share-area">
+            <a class="home"></a>
+            <div class="share-list">
+              <div class="tip">分享：</div>
+              <div class="item wx" data-type="wx"></div>
+              <div class="item wb wb1" data-type="wb"></div>
+              <div class="item qq" data-type="qq"></div>
+              <div class="item wb wb2" data-type="wb"></div>
+              <div class="item yx" data-type="yx"></div>
+            </div>
+          </div>
+          <div class="wx-share"></div>
+        </div>
+
+        <!--跟帖-->
+        <div class="m-comment ui-list">
+          <div class="comment-title ui-title">
+              热门跟贴
+          </div>
+          <div class="comment-list"></div>
+        </div>
+        <div class="m-down m-down-tie">
+          <a data-href="http://3g.163.com/newsapp" class="open-newsapp" onclick="neteaseTracker(false, 'http://3g.163.com/ntes/special/0034073A/wechat_article.html?action=downButton', 'article_back', 'wap')">
+            打开网易新闻,查看更多跟贴(<span class="replyCount"></span>)
+          </a>
+        </div>
+        <div class="m-video-recommond">
+          <div class="title ui-title">相关视频</div>
+          <ul class="list ui-list"></ul>
+        </div>
+        
+        <div class="m-ad">
+          <!-- build:remove -->
+
+          <a href="http://caipiao.163.com/activity/luckyZhuanpan_mainPageLoad.html?act=xwdzp">
+            <img src="http://img2.cache.netease.com/3g/2015/11/2/20151102141437e4822.png" data-echo="http://img1.126.net/channel6/2015/caipiao/984328_0318.jpg"/>
+            <span>免费抽大奖，iPhone6送不停</span>
+
+          </a>
+          <!-- /build -->
+          <!--#include virtual="/ntes/special/00340BNC/article-hl.html"-->
+        </div>
+        
+        <div class="m-related">
+          <div class="title ui-title">相关新闻</div>
+          <ul class="list ui-list"></ul>
+        </div>
+        <div class="m-hotnews">
+          <div class="title ui-title">大家都在看</div>
+          <div class="list-wrap">
+            <!-- build:remove -->
+            <ul class="list">
+              <li>
+                <a href="http://3g.163.com/ntes/special/0034073A/wechat_article.html?docid=[文章ID]">
+                  <div class="img-wrap">
+                    <img src="http://img2.cache.netease.com/3g/img11/3gtouch13/default.jpg" data-echo="$one.get("imgsrc")" onerror="this.src='http://img2.cache.netease.com/3g/img11/3gtouch13/default.jpg'">
+                  </div>
+                  <div class="news-wrap">
+                    <div class="news-title">[标题]</div>
+                    <div class="news-subtitle">[摘要]</div>
+                    <span class="news-tip">23123123跟贴</span>
+                  </div>
+                </a>
+              </li>
+            </ul>
+            <!-- /build -->
+
+            <ul class="list debug-hide">
+              #set($list=$touch.getArticleListByTopicid("AIB5R8JGxiangxu",0,35))
+              #if($list) #foreach($one in $list)
+              <li>
+                <a href="http://3g.163.com/ntes/special/0034073A/wechat_article.html?docid=[文章ID]&from=wechat_article.topnews">
+                  <div class="img-wrap">
+                    <img src="http://img2.cache.netease.com/3g/img11/3gtouch13/default.jpg" data-echo="$one.get("imgsrc")" onerror="this.src='http://img2.cache.netease.com/3g/img11/3gtouch13/default.jpg'">
+                  </div>
+                  <div class="news-wrap">
+                    <div class="news-title">[标题]</div>
+                    <div class="news-subtitle">[摘要]</div>
+                    <span class="news-tip">#if($one.get("commentCount") && $one.get("commentCount") > 0) $one.get("commentCount") #else 0 #end跟贴</span>
+                  </div>
+                </a>
+              </li>
+              #end #end
+            </ul>
+            
+          </div>
+        </div>
+
+        <!-- 相关推荐 -->
+        <div class="m-relative">  
+          <div class="title">相关推荐</div>
+          <ul class="list">
+          </ul>
+        </div>
+
+        <div class="m-bottom-banner">
+          <a class="banner-link open-newsapp" data-href="http://3g.163.com/newsapp"><span class="text">立即打开</span></a>
+        </div>
+        <div class="tagkey-box" style="display:none">
+          <p>
+            报告！经网易网友鉴定，TA在跟贴里的形象是：<span class="js-html"></span>，饱读跟贴的你，快来网易新闻尝试新玩法，六款跟贴标签，贴出你对TA的态度。
+          </p>
+          <a href="javascript:void(0);" class="close">取消</a>
+          <a class="open open-newsapp" data-href="http://3g.163.com/newsapp" onclick="neteaseTracker(false, 'http://3g.163.com/ntes/special/0034073A/wechat_article.html?action=down', 'article_back', 'wap')">打开网易新闻</a>
+        </div>
+        <div class="overlay"></div>
+      </div>
+    </div>
+    <style type="text/css">
+    .ios9{
+      background-color: rgba(255,255,255,0.5);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+    }
+    </style>
+    <script type="text/javascript">
+    (function(){
+      var ios9 = !!navigator.userAgent.match(/iPhone OS 9/i)
+      if(ios9){
+        document.querySelector('.m-share').classList.add('ios9')
+      }
+    })()
+    </script>
+    <script type="text/javascript" id="file_config">
+        var g_config = {
+            jsmap:{
+                "article_back_new": "article_back_new.js"
+            },
+            storeInc:{
+                //统计回调，统计脚本请求情况,jsUrl是js地址，mode是请求模式，
+                //full:表示全量请求，inc表示增量请求，local表示从本地存储读取
+                'statFunc':function(jsUrl,mode){
+                    console.log('get '+jsUrl+' from '+mode);
+                },
+                //写本地存储异常回调，将脚本内容写入本地存储出现异常的时候调用，
+                //用来提供给业务清理本地存储，storekey表示写如的key
+                'storeExFunc':function(storeKey){
+                    console.log('set store item '+storeKey+' exception') ;
+                },
+                'store': true,
+                'inc': true,
+                'proxy':true,
+                'debug': false
+            },
+            //是否走combo,同时支持conf指定哪几个js是合并下载的
+
+            combo:{cb:true,conf:[]},
+            testEnv: false,
+            staticPath: '/release',
+            serverDomain: 'http://localhost:6600',
+            ver: '2015121400074',
+            buildType: 'project'
+        };
+        //如果是测试则修改一下映射
+        if(g_config.testEnv){
+            g_config.jsmap={
+                "article_back_new": "scripts/article_back_new.js"
+            };
+            // storeInc: {},
+            // staticPath: 'js',
+            // serverDomain:''
+            g_config.storeInc = {};
+            g_config.staticPath='dist';
+            g_config.serverDomain='http://localhost:6600';
+            g_config.combo={cb:false,conf:[]};
+        }
+    </script>
+    <script src="http://img3.cache.netease.com/apps/3g/1.1.4/zepto.min.js" type="text/javascript"></script>
+
+    <script src="./scripts/mt/core.js"></script>
+    <script src="./scripts/mt/storeIncLoad.js"></script>
+
+    <script type="text/javascript">
+        MT.config(g_config);
+        require('article_back_new');
+    </script>
+    <!-- 统计代码 -->
+    <!--#include virtual="/ntes/special/00340BFL/analysis.html"-->
+    <script>
+      (function(){
+        var search , docid, spsw, spss, spsf, ua, referer, vid, spst;
+        ua = navigator.userAgent;
+        referrer = document.referrer;
+        search = NTES.localParam().search;
+        spsf = search.f || ''
+        if (ua.match(/micromessenger/gi)) {
+          spsf = 'wx';
+        } else if (ua.match(/weibo/gi)) {
+          spsf = 'wb';
+        } else if (ua.match(/yixin/gi)) {
+          spsf = 'yx';
+        } else if (ua.match(/qq/gi)) {
+          spsf = 'qq';
+        }
+        if(referrer.match(/weibo\.com/)){
+          spsf = 'wb'
+        }else if(referrer.match(/qq\.com/) || referrer.match(/qzone\.com/)){
+          spsf = 'qq'
+        }
+        docid = search['docid']
+        vid = search['videoid']
+        spsw = search['w'] || 1
+        spst = 0;
+        if(vid){
+          spst = 6
+          docid = vid
+        }
+        neteaseTracker(false,'http://sps.163.com/article/?spst=' + spst + '&spss=newsapp&docid=' + docid + '&spsw=' + spsw + '&spsf=' + spsf,'', 'sps' )
+      })()
+    </script>
+    
+  </body>
+
+</html>
