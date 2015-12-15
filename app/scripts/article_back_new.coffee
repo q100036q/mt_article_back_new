@@ -1,6 +1,6 @@
 
 (()->
-  alert("haha")
+  alert("123")
   window.NTES =
     isAndroid: navigator.userAgent.match(/android/ig),
     isNewsapp: navigator.userAgent.match(/NewsApp/ig),

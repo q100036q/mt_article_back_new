@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "description": "A New Start",
   "scripts": {
+    "start": "node node_modules/mtbuild/mtbuild.js app/article_back_new.html app/build.conf  lcs",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "ybduan <ybduan@corp.netease.com>",
@@ -26,13 +27,11 @@
     "grunt-ssh": "^0.12.3",
     "grunt-ssh-deploy": "^0.2.7",
     "load-grunt-tasks": "^1.0.0",
+    "mtbuild": "0.0.3",
     "pem": "^1.4.4",
     "request": "^2.51.0",
     "should": "^6.0.1",
     "should-http": "0.0.3",
     "time-grunt": "^1.0.0"
-  },
-  "dependencies": {
-    "mtbuild": "0.0.3"
   }
 }

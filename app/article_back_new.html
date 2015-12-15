@@ -244,9 +244,9 @@
 
             combo:{cb:true,conf:[]},
             testEnv: false,
-            staticPath: '/release',
+            staticPath: '',
             serverDomain: 'http://localhost:6600',
-            ver: '2015121400074',
+            ver: '2015121500103',
             buildType: 'project'
         };
         //如果是测试则修改一下映射
@@ -258,15 +258,14 @@
             // staticPath: 'js',
             // serverDomain:''
             g_config.storeInc = {};
-            g_config.staticPath='dist';
+            g_config.staticPath='';
             g_config.serverDomain='http://localhost:6600';
             g_config.combo={cb:false,conf:[]};
         }
     </script>
     <script src="http://img3.cache.netease.com/apps/3g/1.1.4/zepto.min.js" type="text/javascript"></script>
 
-    <script src="./scripts/mt/core.js"></script>
-    <script src="./scripts/mt/storeIncLoad.js"></script>
+    <script src="http://f2e.developer.163.com/liuyan/3g/scripts/mt/core.js"></script>
 
     <script type="text/javascript">
         MT.config(g_config);

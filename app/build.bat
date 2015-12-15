@@ -1,1 +1,1 @@
-node node_modules/mtbuild/mtbuild.js dist/article_back_new.html app/build.conf  lcs
+node node_modules/mtbuild/mtbuild.js app/article_back_new.html app/build.conf  lcs
