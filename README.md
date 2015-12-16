@@ -14,53 +14,53 @@
 2. 但mtbuild这个包里没有mt的基础文件，这需要到mt的[git地址](https://github.com/mtjs/mt)里面mt/mt1.0/js/mt/base/目录下拷贝core.js和storeincLoad.js文件。我把这两个文件grunt混淆合并后在article\_back_new.html里面引用。
 3. 在 article\_back_new.html 里面配置
 
-    <script type="text/javascript" id="file_config">
-        var g_config = {
-          jsmap:{
-            "article_back_new": "article_back_new.js"
-          },
-          storeInc:{
-            //统计回调，统计脚本请求情况,jsUrl是js地址，mode是请求模式，
-            //full:表示全量请求，inc表示增量请求，local表示从本地存储读取
-            'statFunc':function(jsUrl,mode){
-              console.log('get '+jsUrl+' from '+mode);
-            },
-            //写本地存储异常回调，将脚本内容写入本地存储出现异常的时候调用，
-            //用来提供给业务清理本地存储，storekey表示写入的key
-            'storeExFunc':function(storeKey){
-              console.log('set store item '+storeKey+' exception') ;
-            },
-            'store': true,
-            'inc': true,
-            'proxy':true,
-            'debug': false
-          },
-          //是否本地调试js
-          testEnv: true,
-          staticPath: '/release',
-          serverDomain: 'http://localhost:6600',
-          ver: '2015121600120',
-          buildType: 'project'
-        };
-        //如果只是本地调试js，只需修改一下映射
-        if(g_config.testEnv){
-          g_config.jsmap={
-            "article_back_new": "article_back_new.js"
-          };
-          g_config.storeInc = {};
-          g_config.staticPath='/scripts';
-          g_config.serverDomain='http://localhost:6600';
-        }
-      </script>
-
-    //引用合并后的基础文件
-    <script src="http://f2e.developer.163.com/liuyan/3g/scripts/mt/core.js"></script>
-
-    //入口
-    <script type="text/javascript">
-          MT.config(g_config);
-          require('article_back_new');
-      </script>
+        <script type="text/javascript" id="file_config">
+            var g_config = {
+              jsmap:{
+                "article_back_new": "article_back_new.js"
+              },
+              storeInc:{
+                //统计回调，统计脚本请求情况,jsUrl是js地址，mode是请求模式，
+                //full:表示全量请求，inc表示增量请求，local表示从本地存储读取
+                'statFunc':function(jsUrl,mode){
+                  console.log('get '+jsUrl+' from '+mode);
+                },
+                //写本地存储异常回调，将脚本内容写入本地存储出现异常的时候调用，
+                //用来提供给业务清理本地存储，storekey表示写入的key
+                'storeExFunc':function(storeKey){
+                  console.log('set store item '+storeKey+' exception') ;
+                },
+                'store': true,
+                'inc': true,
+                'proxy':true,
+                'debug': false
+              },
+              //是否本地调试js
+              testEnv: true,
+              staticPath: '/release',
+              serverDomain: 'http://localhost:6600',
+              ver: '2015121600120',
+              buildType: 'project'
+            };
+            //如果只是本地调试js，只需修改一下映射
+            if(g_config.testEnv){
+              g_config.jsmap={
+                "article_back_new": "article_back_new.js"
+              };
+              g_config.storeInc = {};
+              g_config.staticPath='/scripts';
+              g_config.serverDomain='http://localhost:6600';
+            }
+        </script>
+    
+        //引用合并后的基础文件
+        <script src="http://f2e.developer.163.com/liuyan/3g/scripts/mt/core.js"></script>
+    
+        //入口
+        <script type="text/javascript">
+              MT.config(g_config);
+              require('article_back_new');
+        </script>
 
 4. 自定义/release的存放目录,mtbuild是默认会在虚拟目录的最外层新建release文件夹,这里我需要把它放在app目录下。所以我修改了mtupload.js、mtbuild.js、build_project.js、build_files.js、build.conf这些配置文件，只是在release的外层加了个app/。（ps:mtbuild注释中有说明可以自定义release的存放路径。）
 5. build.conf的配置
