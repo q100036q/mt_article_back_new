@@ -1,6 +1,6 @@
 
 (()->
-  alert("123")
+  alert("修改第一次")
   window.NTES =
     isAndroid: navigator.userAgent.match(/android/ig),
     isNewsapp: navigator.userAgent.match(/NewsApp/ig),
