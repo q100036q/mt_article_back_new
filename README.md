@@ -71,14 +71,14 @@
               }
             }
             
-意思是以.tmp/scripts/下的js为原js文件进行增量更新后保存在app/release/{pv}/下面。因为增量更新的算法原理最后是用eval执行新增的js内容。而不是coffee。
+        意思是以.tmp/scripts/下的js为原js文件进行增量更新后保存在app/release/{pv}/下面。因为增量更新的算法原理最后是用eval执行新增的js内容。而不是coffee。
 
 6. 添加mt增量更新的启动命令，官方的是写了一个build.bat批处理文件，为了方便我把命令行添加在package.json里用npm start来执行:
 
-    "scripts": {
-        "start": "node node_modules/mtbuild/mtbuild.js app/article_back_new.html app/build.conf  lcs",
-        "test": "echo \"Error: no test specified\" && exit 1"
-      }
+            "scripts": {
+                "start": "node node_modules/mtbuild/mtbuild.js app/article_back_new.html app/build.conf  lcs",
+                "test": "echo \"Error: no test specified\" && exit 1"
+              }
 
 7. 做好了以上工作，就可以自己操作一遍啦。
 
