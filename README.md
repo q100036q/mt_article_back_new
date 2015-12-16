@@ -65,11 +65,12 @@
 4. 自定义/release的存放目录,mtbuild是默认会在虚拟目录的最外层新建release文件夹,这里我需要把它放在app目录下。所以我修改了mtupload.js、mtbuild.js、build_project.js、build_files.js、build.conf这些配置文件，只是在release的外层加了个app/。（ps:mtbuild注释中有说明可以自定义release的存放路径。）
 5. build.conf的配置
 
-    {
-      './app/release/{pv}/article_back_new-{fv}.js': {
-          files: ['./.tmp/scripts/article_back_new.js']
-      }
-    }
+            {
+              './app/release/{pv}/article_back_new-{fv}.js': {
+                  files: ['./.tmp/scripts/article_back_new.js']
+              }
+            }
+            
 意思是以.tmp/scripts/下的js为原js文件进行增量更新后保存在app/release/{pv}/下面。因为增量更新的算法原理最后是用eval执行新增的js内容。而不是coffee。
 
 6. 添加mt增量更新的启动命令，官方的是写了一个build.bat批处理文件，为了方便我把命令行添加在package.json里用npm start来执行:
