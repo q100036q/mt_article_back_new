@@ -1,6 +1,6 @@
 
 (()->
-  alert("修改第一次")
+  alert("原始js")
   window.NTES =
     isAndroid: navigator.userAgent.match(/android/ig),
     isNewsapp: navigator.userAgent.match(/NewsApp/ig),
